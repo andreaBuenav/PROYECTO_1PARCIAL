@@ -1,3 +1,4 @@
+<<<<<<< HEAD:PROYECTO_1PARCIAL/Clubes.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,3 +104,105 @@
   </footer>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clubes - Pasion Futbol EC</title>
+  <link rel="preload" href="CSS/estilos.css" as="style" />
+    <link href="CSS/estilos.css" rel="stylesheet" />
+    <link rel="preload" href="CSS/normalize.css" as="style" />
+    <link href="CSS/normalize.css" rel="stylesheet" />
+  
+</head>
+<body>
+    <header id= "header" >
+      
+      <img src="IMAGENES/logo-pag.jpg" alt="Logo del sitio" />
+       <button class="hamburguer_menu">☰</button>
+      <nav id="nav-menu" >
+        <ul>
+          <li><a href="Index.html">Inicio</a></li>
+          <li><a href="Clubes.html">Clubes</a></li>
+          <li><a href="Hinchas.html">Hinchas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+  <main>
+    <section class="clubes">
+      <h2>🏟️ Clubes históricos del fútbol ecuatoriano</h2>
+
+      <details>
+        <summary><strong>Barcelona SC</strong></summary>
+        <img src="IMAGENES/bsc-logo.png" alt="Escudo Barcelona SC" class="escudo" />
+        <p><strong>Ciudad:</strong> Guayaquil</p>
+        <p><strong>Estadio:</strong> Monumental Isidro Romero Carbo</p>
+        <img src="IMAGENES/bsc-estadio.jpg" alt="Estadio Monumental" class="estadio" />
+        <p>Fundado en 1925, es uno de los equipos más populares del país.</p>
+      </details>
+
+      <details>
+        <summary><strong>Emelec</strong></summary>
+        <img src="IMAGENES/cse-logo.png" alt="Escudo Emelec" class="escudo" />
+        <p><strong>Ciudad:</strong> Guayaquil</p>
+        <p><strong>Estadio:</strong> George Capwell</p>
+        <img src="IMAGENES/cse-estadio.jpg" alt="Estadio Capwell" class="estadio" />
+        <p>Reconocido por su hinchada y estilo ofensivo.</p>
+      </details>
+
+      <details>
+        <summary><strong>Liga de Quito</strong></summary>
+        <img src="IMAGENES/liga-logo.png" alt="Escudo LDU" class="escudo" />
+        <p><strong>Ciudad:</strong> Quito</p>
+        <p><strong>Estadio:</strong> Rodrigo Paz Delgado</p>
+        <img src="IMAGENES/liga-estadio.jpeg" alt="Estadio LDU" class="estadio" />
+        <p>Primer club ecuatoriano en ganar la Copa Libertadores.</p>
+      </details>
+
+      <details>
+        <summary><strong>Independiente del Valle</strong></summary>
+        <img src="IMAGENES/idv-logo.png" alt="Escudo IDV" class="escudo" />
+        <p><strong>Ciudad:</strong> Sangolquí</p>
+        <p><strong>Estadio:</strong> Banco Guayaquil</p>
+        <img src="IMAGENES/idv-estadio.jpg" alt="Estadio IDV" class="estadio" />
+        <p>Conocido por su cantera y crecimiento reciente.</p>
+      </details>
+    </section>
+  </main>
+      <script>
+    // Control del header al hacer scroll
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+            // Scroll hacia abajo
+            document.getElementById('header').classList.add('header-hidden');
+        } else {
+            // Scroll hacia arriba o en la parte superior
+            document.getElementById('header').classList.remove('header-hidden');
+        }
+        
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+    
+    // Control del menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    });
+</script>
+  <footer id="footer">
+    <p>&copy; 2025  Pasión Fútbol EC. Todos los derechos reservados.</p>
+    <p>Desarrollado por Andrea Buenaventura, David Carpio, Dany Chilan, Kevin Pluas, Carlos Chinga</p>
+  </footer>
+</body>
+</html>
+>>>>>>> f868554b8f1177fae503ad22ade753d8c7218109:Clubes.html

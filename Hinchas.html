@@ -1,3 +1,4 @@
+<<<<<<< HEAD:PROYECTO_1PARCIAL/Hinchas.html
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -125,3 +126,126 @@
   </footer>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hinchas - Fútbol Ecuatoriano</title>
+    <link rel="preload" href="CSS/estilos.css" as="style" />
+    <link href="CSS/estilos.css" rel="stylesheet" />
+    <link rel="preload" href="CSS/normalize.css" as="style" />
+    <link href="CSS/normalize.css" rel="stylesheet" />
+  </head>
+  <body>
+       <header id= "header" >
+      
+      <img src="IMAGENES/logo-pag.jpg" alt="Logo del sitio" />
+       <button class="hamburguer_menu">☰</button>
+      <nav id="nav-menu" >
+        <ul>
+          <li><a href="Index.html">Inicio</a></li>
+          <li><a href="Clubes.html">Clubes</a></li>
+          <li><a href="Hinchas.html">Hinchas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hinchas">
+        <h2>🧣 La pasión de las hinchadas</h2>
+        <p>
+          En Ecuador, el fútbol se vive con el corazón. Estas son algunas de las
+          hinchadas más apasionadas.
+        </p>
+
+        <div class="slideshow">
+          <div class="slides">
+            <div class="slide">
+                <img
+              src="IMAGENES/bsc-Suroscura.jpg" alt="Sur Oscura - Barcelona SC"
+            />
+            </div>
+
+            <div class="slide">
+                <img
+              src="IMAGENES/cse-bocadelpozo.jpg" alt="Boca del Pozo - Emelec"
+            />
+            </div>
+
+            <div class="slide">
+                <img src="IMAGENES/ldu-muerteblanca.jpg" alt="Muerte Blanca - LDU" />
+            </div>
+          </div>
+        </div>
+
+        <section class="formulario-hincha">
+  <h2>Comparte tu pasión</h2>
+  <form onsubmit="return mostrarMensaje()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required />
+
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" id="ciudad" name="ciudad" required />
+
+    <label for="equipo">Equipo:</label>
+    <select id="equipo" name="equipo" required>
+      <option value="">-- Selecciona un equipo --</option>
+      <option value="Barcelona SC">Barcelona SC</option>
+      <option value="Emelec">Emelec</option>
+      <option value="Liga de Quito">Liga de Quito</option>
+      <option value="Otro">Otro</option>
+    </select>
+
+    <label for="mensaje">¿Por qué apoyas a este equipo?</label>
+    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+
+    <button type="submit">Enviar</button>
+
+    <p id="mensajeExito" class="success" style="display: none">
+      ¡Gracias por compartir tu pasión! 🏁
+    </p>
+  </form>
+</section>
+
+      </section>
+    </main>
+
+    <script>
+      function mostrarMensaje() {
+        document.getElementById("mensajeExito").style.display = "block";
+        return false; // Evita que se recargue la página
+      }
+      let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+            // Scroll hacia abajo
+            document.getElementById('header').classList.add('header-hidden');
+        } else {
+            // Scroll hacia arriba o en la parte superior
+            document.getElementById('header').classList.remove('header-hidden');
+        }
+        
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+    
+    // Control del menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    });
+    </script>
+      <footer id="footer">
+    <p>&copy; 2025  Pasión Fútbol EC. Todos los derechos reservados.</p>
+    <p>Desarrollado por Andrea Buenaventura, David Carpio, Dany Chilan, Kevin Pluas, Carlos Chinga</p>
+  </footer>
+  </body>
+</html>
+>>>>>>> f868554b8f1177fae503ad22ade753d8c7218109:Hinchas.html
