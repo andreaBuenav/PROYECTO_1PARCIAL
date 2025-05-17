@@ -13,7 +13,7 @@
        <header id= "header" >
       
       <img src="IMAGENES/logo-pag.jpg" alt="Logo del sitio" />
-       <button class="hamburguer_menu">☰</button>
+      <button class="hamburguer_menu">☰</button>
       <nav id="nav-menu" >
         <ul>
           <li><a href="Index.html">Inicio</a></li>
@@ -104,14 +104,13 @@
     }, false);
     
     // Control del menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
+    const hamburguerBtn = document.querySelector('.hamburguer_menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburguerBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
+    
     </script>
       <footer id="footer">
     <p>&copy; 2025  Pasión Fútbol EC. Todos los derechos reservados.</p>

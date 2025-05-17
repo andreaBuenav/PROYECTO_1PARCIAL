@@ -405,6 +405,17 @@ form button:hover {
     border-radius: 0;
     border-bottom: 1px solid #335588;
   }
+   #nav-menu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  #nav-menu ul li a {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 0;
+    border-bottom: 1px solid #335588;
+  }
   
   /* Ajustamos el padding del contenido */
   main {
@@ -446,4 +457,20 @@ form button:hover {
       background-color: transparent; /* Fondo transparente */
       box-shadow: none; /* Quitar la sombra */
     }
+
+    #nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #003366;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+  }
+
+  /* Mostrar menú cuando esté activo */
+  #nav-menu.active {
+    display: block;
+  }
   }
