@@ -1,3 +1,7 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap');
+
 /* Reset básico */
 * {
   margin: 0;
@@ -6,14 +10,17 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 150;
+  font-style: normal;
 }
 
 /* Header y menú */
 #header {
   background-color: #003366;
+
   color: white;
   padding: 10px 20px;
   position: fixed;
@@ -24,8 +31,11 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: transform 0.3s ease;
-
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* sombra negra suave */
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* sombra blanca suave */
+  backdrop-filter: blur(10px); /* desenfoque de fondo */
 }
+
 
 #header.header-hidden {
   transform: translateY(-100%);
@@ -70,11 +80,11 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
-  position: relative; /* Cambiado a relativo */
-  bottom: 0; /* Asegura que esté al final del contenido */
   width: 100%;
-
+  box-sizing: border-box; /* importante para que el padding no aumente el ancho */
+  clear: both; /* para evitar problemas con floats */
 }
+
 
 
 /* Espaciado del contenido para no tapar con el menú fijo */
@@ -183,7 +193,7 @@ main {
 .clubes {
   background-color: white;
   padding: 40px 20px;
-  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   margin: auto;
 }
@@ -195,11 +205,12 @@ main {
 
 .clubes details {
   margin-bottom: 20px;
-  border: 2px solid #003366;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  transition: background-color 0.3s;
+  border-radius: 5px;
+  padding: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .clubes details:hover {
@@ -210,14 +221,53 @@ main {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
+  padding: 15px 20px;
+  list-style: none;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.clubes summary:hover {
+  background-color: #e0ecff;
+}
+
+
+.clubes summary::after {
+  content: "▸";
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.clubes details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+/* Contenido que aparece al abrir */
+.clubes details > *:not(summary) {
+  padding: 15px 20px;
+  animation: fadeDown 1000ms ease;
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .clubes .escudo {
   width: 100px;
   height: auto;
   margin: 10px 0;
-}
+  }
 
 .clubes .estadio {
   width: 100%;
@@ -234,15 +284,22 @@ main {
   border-radius: 10px;
   max-width: 900px;
   margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .hinchas h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
 }
+
 .hinchas p {
   text-align: center;
   margin-bottom: 20px;
+
 }
 
 .slideshow {
@@ -300,7 +357,7 @@ main {
   border-radius: 10px;
   max-width: 600px;
   margin: 40px auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .formulario-hincha h2 {
@@ -399,12 +456,37 @@ form button:hover {
     gap: 0;
   }
   
-  #header nav ul li a {
-    display: block;
-    padding: 12px 20px;
-    border-radius: 0;
-    border-bottom: 1px solid #335588;
-  }
+#header nav ul li a {
+  position: relative;       /* necesario para el pseudo-elemento */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  overflow: hidden;        /* para evitar que el pseudo-elemento sobresalga */
+  transition: color 0.3s ease;
+}
+
+#header nav ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: #3b90aa; /* color del fondo animado */
+  border-radius: 5px;
+  z-index: -1;             /* detrás del texto */
+  transition: width 0.5s ease; /* duración de la animación */
+}
+
+#header nav ul li a:hover::before {
+  width: 100%;             /* se expande el fondo al 100% */
+}
+
+#header nav ul li a:hover {
+  color: #fcfbfa;          /* color del texto sobre el fondo */
+}
    #nav-menu ul {
     flex-direction: column;
     gap: 0;
@@ -474,3 +556,63 @@ form button:hover {
     display: block;
   }
   }
+
+  /* Estilos para el contenedor del formulario */
+.formulario-hincha {
+  background-color: white; /* To make the shadow visible */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombreado suave */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.formulario-hincha h2 {
+  color: #003366; /* Keeping the original color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario-compartir label {
+  font-family: 'Georgia', serif; /* Ejemplo de fuente elegante */
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  color: #003366; /* Keeping the original color */
+}
+
+.formulario-hincha input,
+.formulario-hincha select,
+.formulario-hincha textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.formulario-compartir textarea {
+  resize: vertical;
+}
+
+/* Estilos para el botón Enviar */
+.formulario-hincha button {
+  background-color: #003366; /* Keeping the original color */
+  color: white;
+  border: none;
+  padding: 12px 150px; /* Adjust padding as needed */
+  font-size: 16px;
+  border-radius: 25px; /* Botón redondeado */
+  cursor: pointer;
+  width: auto; /* Adjust width as needed */
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+  display: block; /* To center the button if needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formulario-hincha button:hover {
+  background-color: #00509e; /* Darker shade on hover */
+}
