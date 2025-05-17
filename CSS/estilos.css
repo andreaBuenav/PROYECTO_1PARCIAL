@@ -1,4 +1,4 @@
-/* Imports */
+/* Imports para las fuentes usando API de google fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap");
 
@@ -31,9 +31,9 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* sombra negra suave */
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* sombra blanca suave */
-  backdrop-filter: blur(10px); /* desenfoque de fondo */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 #header.header-hidden {
@@ -54,17 +54,18 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 12px; /* Añadido padding para mejor toque */
-  border-radius: 5px; /* Opcional: bordes redondeados */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  padding: 8px 12px; 
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #header nav ul li a:hover {
-  background-color: #3b90aa; /* Color café claro para el fondo al hacer hover */
-  color: #fcfbfa; /* Opcional: Cambiar el color del texto al hacer hover */
-  text-decoration: none; /* Asegurar que no haya subrayado al hacer hover */
+  background-color: #3b90aa;
+  color: #fcfbfa;
+  text-decoration: none;
 }
 
+/* Estilo para el menú hamburguesa */
 .hamburguer_menu {
   display: none;
   background: none;
@@ -74,19 +75,20 @@ body {
   cursor: pointer;
 }
 
+/* Estilo para el footer */
 #footer {
   background-color: #7c9ec0;
   color: white;
   text-align: center;
   padding: 20px;
   width: 100%;
-  box-sizing: border-box; /* importante para que el padding no aumente el ancho */
-  clear: both; /* para evitar problemas con floats */
+  box-sizing: border-box;
+  clear: both;
 }
 
 /* Espaciado del contenido para no tapar con el menú fijo */
 main {
-  padding-top: 70px; /* Ajustar según la altura del header */
+  padding-top: 70px; 
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 40px;
@@ -94,11 +96,11 @@ main {
 
 /* Sección jugadores */
 article.noticias h2 {
-  margin-bottom: 20px; /* Ajusta este valor al espacio que desees */
+  margin-bottom: 20px; 
 }
 
 article.noticias p {
-  margin-bottom: 40px; /* Ajusta este valor al espacio que desees */
+  margin-bottom: 40px; 
 }
 
 
@@ -110,7 +112,7 @@ article.noticias p {
 }
 
 .jugadores h2 {
-  margin-top: 20x;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -155,6 +157,8 @@ article.noticias p {
   border-radius: 10px;
   max-width: 900px;
   margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .historia h2 {
@@ -163,27 +167,46 @@ article.noticias p {
 }
 
 .contenedor-lineatp {
-  overflow-x: auto; /* Permite el scroll horizontal en pantallas pequeñas */
-  padding-left: 20px; /* Añade espacio para que se vea la primera tarjeta */
+  overflow-x: auto;
+  padding-left: 20px;
 }
 
 .linea-tiempo {
   display: flex;
-  justify-content: flex-start; /* Mueve el scroll al inicio en lugar de centrar */
+  justify-content: flex-start;
   gap: 30px;
   padding: 20px 0;
   min-width: 650px;
-  scroll-snap-type: x mandatory; /* Suaviza el scroll si se desea */
-  scroll-padding-left: 20px; /* Alinea correctamente el scroll con el padding */
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
 }
+
 .evento {
   flex: 0 0 auto;
-  background-color: #e6f0ff;
-  border-left: 4px solid #003366;
+  background-color: #e9eff8b9;
+  border-left: 4px solid #2567a8;
   padding: 10px;
   border-radius: 5px;
   width: 200px;
-  scroll-snap-align: start; /* Hace que cada tarjeta se alinee bien en scroll */
+  scroll-snap-align: start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.linea-tiempo :hover {
+  transform: scale(1.05);
+}
+
+.evento img:hover {
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);  
+}
+.evento p:hover {
+  transform: none;
+}
+
+.evento h4:hover {
+  transform: none;
 }
 
 .evento img {
@@ -191,14 +214,17 @@ article.noticias p {
   height: 120px;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .evento h4 {
   margin: 10px 0 5px;
-}
+  }
 
 .evento p {
   font-size: 14px;
+  margin: 5px 0;
+
 }
 
 /* Sección Clubes */
@@ -315,7 +341,7 @@ article.noticias p {
 .slideshow {
   width: 100%;
   max-width: 600px;
-  aspect-ratio: 3 / 2; /* Controla proporción sin fijar altura exacta */
+  aspect-ratio: 3 / 2;
   margin: 0 auto 30px;
   overflow: hidden;
   border-radius: 10px;
@@ -325,7 +351,7 @@ article.noticias p {
 
 .slides {
   display: flex;
-  width: 100%; /* 3 imágenes */
+  width: 100%;
 
   animation: slide 9s infinite;
 }
@@ -425,26 +451,22 @@ form button:hover {
 
 /* Estilos para pantallas más pequeñas (hasta 600px) */
 @media (max-width: 600px) {
-  /* Ajustamos el header */
   #header {
     padding: 8px 15px;
-    display: flex; /* Aseguramos que el logo y el botón estén en la misma línea */
-    justify-content: space-between; /* Espacio entre logo y botón */
-    align-items: center; /* Centrar verticalmente logo y botón */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  /* Hacemos el logo más pequeño */
   #header img {
     height: 35px;
     margin-bottom: 0;
   }
 
-  /* Mostramos el botón hamburguesa */
   .hamburguer_menu {
-    display: block; /* Mostrar en pantallas pequeñas */
+    display: block;
   }
 
-  /* Ocultamos el menú por defecto */
   #header nav {
     display: none;
     position: absolute;
@@ -460,20 +482,19 @@ form button:hover {
     display: block;
   }
 
-  /* Reorganizamos el menú en columna */
   #header nav ul {
     flex-direction: column;
     gap: 0;
   }
 
   #header nav ul li a {
-    position: relative; /* necesario para el pseudo-elemento */
+    position: relative;
     color: white;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 5px;
-    overflow: hidden; /* para evitar que el pseudo-elemento sobresalga */
+    overflow: hidden;
     transition: color 0.3s ease;
   }
 
@@ -484,18 +505,18 @@ form button:hover {
     top: 0;
     height: 100%;
     width: 0;
-    background-color: #3b90aa; /* color del fondo animado */
+    background-color: #3b90aa;
     border-radius: 5px;
-    z-index: -1; /* detrás del texto */
-    transition: width 0.5s ease; /* duración de la animación */
+    z-index: -1;
+    transition: width 0.5s ease;
   }
 
   #header nav ul li a:hover::before {
-    width: 100%; /* se expande el fondo al 100% */
+    width: 100%;
   }
 
   #header nav ul li a:hover {
-    color: #fcfbfa; /* color del texto sobre el fondo */
+    color: #fcfbfa;
   }
   #nav-menu ul {
     flex-direction: column;
@@ -515,11 +536,11 @@ form button:hover {
   }
 
   .linea-tiempo {
-    min-width: auto; /* Permite que se ajuste al contenido */
+    min-width: auto;
   }
 
   .evento {
-    width: 160px; /* Reducir el ancho de los eventos */
+    width: 160px;
     padding: 8px;
   }
 
@@ -543,11 +564,11 @@ form button:hover {
   }
 
   #header nav {
-    display: block; /* Aseguramos que la navegación sea visible */
-    position: static; /* Volver a la posición estática */
-    width: auto; /* Ancho automático */
-    background-color: transparent; /* Fondo transparente */
-    box-shadow: none; /* Quitar la sombra */
+    display: block;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   #nav-menu {
@@ -569,25 +590,25 @@ form button:hover {
 
 /* Estilos para el contenedor del formulario */
 .formulario-hincha {
-  background-color: white; /* To make the shadow visible */
+  background-color: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombreado suave */
-  margin-top: 20px; /* Adjust as needed */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
 }
 
 .formulario-hincha h2 {
-  color: #003366; /* Keeping the original color */
+  color: #003366;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .formulario-compartir label {
-  font-family: "Georgia", serif; /* Ejemplo de fuente elegante */
+  font-family: "Georgia", serif;
   font-weight: bold;
   display: block;
   margin-top: 15px;
-  color: #003366; /* Keeping the original color */
+  color: #003366;
 }
 
 .formulario-hincha input,
@@ -611,12 +632,12 @@ form button:hover {
   background-color: #003366;
   color: white;
   border: none;
-  padding: 12px 20px; /* Mucho menor */
+  padding: 12px 20px;
   font-size: 16px;
   border-radius: 25px;
   cursor: pointer;
-  width: 80%; /* Se adapta al tamaño del contenedor */
-  max-width: 300px; /* No se hace muy grande en escritorio */
+  width: 80%;
+  max-width: 300px;
   margin-top: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: block;
@@ -625,5 +646,5 @@ form button:hover {
 }
 
 .formulario-hincha button:hover {
-  background-color: #00509e; /* Darker shade on hover */
+  background-color: #00509e;
 }
