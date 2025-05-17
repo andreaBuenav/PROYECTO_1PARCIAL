@@ -1,6 +1,6 @@
-/* Imports */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap');
+/* Imports para las fuentes usando API de google fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap");
 
 /* Reset básico */
 * {
@@ -20,7 +20,7 @@ body {
 /* Header y menú */
 #header {
   background-color: #003366;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   color: white;
   padding: 10px 20px;
   position: fixed;
@@ -31,11 +31,10 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* sombra negra suave */
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* sombra blanca suave */
-  backdrop-filter: blur(10px); /* desenfoque de fondo */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
-
 
 #header.header-hidden {
   transform: translateY(-100%);
@@ -55,19 +54,20 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 12px; /* Añadido padding para mejor toque */
-  border-radius: 5px; /* Opcional: bordes redondeados */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #header nav ul li a:hover {
-  background-color: #3b90aa; /* Color café claro para el fondo al hacer hover */
-  color: #fcfbfa; /* Opcional: Cambiar el color del texto al hacer hover */
-  text-decoration: none; /* Asegurar que no haya subrayado al hacer hover */
+  background-color: #3b90aa;
+  color: #fcfbfa;
+  text-decoration: none;
 }
 
+/* Estilo para el menú hamburguesa */
 .hamburguer_menu {
-   display: none; 
+  display: none;
   background: none;
   border: none;
   color: white;
@@ -75,37 +75,93 @@ body {
   cursor: pointer;
 }
 
+/* Estilo para el footer */
 #footer {
   background-color: #7c9ec0;
   color: white;
   text-align: center;
   padding: 20px;
   width: 100%;
-  box-sizing: border-box; /* importante para que el padding no aumente el ancho */
-  clear: both; /* para evitar problemas con floats */
+  box-sizing: border-box;
+  clear: both;
 }
-
-
 
 /* Espaciado del contenido para no tapar con el menú fijo */
 main {
-  padding-top: 70px; /* Ajustar según la altura del header */
+  padding-top: 70px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 40px;
 }
 
+/* Sección noticias */
+.noticias {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.noticias h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.tarjeta-noticia {
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  background-color: white;
+  border-left: 4px solid #003366;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.miniatura {
+  width: 120px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.tarjeta-noticia > .miniatura {
+  height: auto;
+  flex-shrink: 0;
+  align-self: stretch; /* esto es la clave */
+}
+
+.texto-noticia h3 {
+  margin: 0;
+  color: #003366;
+}
+
+.fecha {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 8px;
+}
+
 /* Sección jugadores */
+
 .jugadores {
   text-align: center;
   margin-bottom: 60px;
-  padding: 20px;
-  padding-top: 40px;
+  padding: 40px;
+  padding-top: 50px;
 }
 
 .jugadores h2 {
-  margin-top: 80x;
+  margin-top: 20px;
   margin-bottom: 20px;
+  color: #003366;
+}
+
+.jugadores h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #003366;
 }
 
 .grid {
@@ -149,32 +205,56 @@ main {
   border-radius: 10px;
   max-width: 900px;
   margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .historia h2 {
   text-align: center;
   margin-bottom: 30px;
+  color: #003366;
 }
 
 .contenedor-lineatp {
-  overflow-x: auto; /* Permite el scroll horizontal en pantallas pequeñas */
+  overflow-x: auto;
+  padding-left: 20px;
 }
 
 .linea-tiempo {
   display: flex;
-  justify-content: center; /* Centra los eventos dentro del scroll */
+  justify-content: flex-start;
   gap: 30px;
   padding: 20px 0;
-   min-width: 650px; 
-  scroll-snap-type: x mandatory; /* Suaviza el scroll si se desea */
+  min-width: 650px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
 }
+
 .evento {
   flex: 0 0 auto;
-  background-color: #e6f0ff;
-  border-left: 4px solid #003366;
+  background-color: #e9eff8b9;
+  border-left: 4px solid #2567a8;
   padding: 10px;
   border-radius: 5px;
   width: 200px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.linea-tiempo :hover {
+  transform: scale(1.05);
+}
+
+.evento img:hover {
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.evento p:hover {
+  transform: none;
+}
+
+.evento h4:hover {
+  transform: none;
 }
 
 .evento img {
@@ -182,6 +262,7 @@ main {
   height: 120px;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .evento h4 {
@@ -190,11 +271,13 @@ main {
 
 .evento p {
   font-size: 14px;
+  margin: 5px 0;
 }
 
 /* Sección Clubes */
 .clubes {
   background-color: white;
+  border-radius: 10px;
   padding: 40px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 900px;
@@ -204,6 +287,7 @@ main {
 .clubes h2 {
   text-align: center;
   margin-bottom: 30px;
+  color: #003366;
 }
 
 .clubes details {
@@ -237,7 +321,6 @@ main {
   background-color: #e0ecff;
 }
 
-
 .clubes summary::after {
   content: "▸";
   font-size: 18px;
@@ -270,7 +353,7 @@ main {
   width: 100px;
   height: auto;
   margin: 10px 0;
-  }
+}
 
 .clubes .estadio {
   width: 100%;
@@ -297,18 +380,18 @@ main {
   font-weight: 400;
   font-style: normal;
   font-size: xx-large;
+  color: #003366;
 }
 
 .hinchas p {
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .slideshow {
   width: 100%;
   max-width: 600px;
-  aspect-ratio: 3 / 2; /* Controla proporción sin fijar altura exacta */
+  aspect-ratio: 3 / 2;
   margin: 0 auto 30px;
   overflow: hidden;
   border-radius: 10px;
@@ -318,15 +401,15 @@ main {
 
 .slides {
   display: flex;
-  width: 100%; /* 3 imágenes */
-  
+  width: 100%;
+
   animation: slide 9s infinite;
 }
 
 .slide {
   flex: 0 0 100%;
   height: 25rem;
-  
+
   position: relative;
 }
 
@@ -334,24 +417,25 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
 @keyframes slide {
-  0%, 20% {
+  0%,
+  20% {
     transform: translateX(0%);
   }
-  33.33%, 53.33% {
+  33.33%,
+  53.33% {
     transform: translateX(-100%);
   }
-  66.66%, 86.66% {
+  66.66%,
+  86.66% {
     transform: translateX(-200%);
   }
   100% {
     transform: translateX(0%);
   }
 }
-
 
 /* Formulario */
 .formulario-hincha {
@@ -360,7 +444,7 @@ main {
   border-radius: 10px;
   max-width: 600px;
   margin: 40px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .formulario-hincha h2 {
@@ -415,29 +499,24 @@ form button:hover {
   margin-top: 20px;
 }
 
-
 /* Estilos para pantallas más pequeñas (hasta 600px) */
 @media (max-width: 600px) {
-  /* Ajustamos el header */
   #header {
     padding: 8px 15px;
-    display: flex; /* Aseguramos que el logo y el botón estén en la misma línea */
-    justify-content: space-between; /* Espacio entre logo y botón */
-    align-items: center; /* Centrar verticalmente logo y botón */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  
-  /* Hacemos el logo más pequeño */
+
   #header img {
     height: 35px;
     margin-bottom: 0;
   }
-  
-  /* Mostramos el botón hamburguesa */
+
   .hamburguer_menu {
-    display: block; /* Mostrar en pantallas pequeñas */
+    display: block;
   }
-  
-  /* Ocultamos el menú por defecto */
+
   #header nav {
     display: none;
     position: absolute;
@@ -445,74 +524,73 @@ form button:hover {
     left: 0;
     width: 100%;
     background-color: #003366;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Cuando el menú está activo */
   #header nav.active {
     display: block;
   }
-  
-  /* Reorganizamos el menú en columna */
+
   #header nav ul {
     flex-direction: column;
     gap: 0;
   }
-  
-#header nav ul li a {
-  position: relative;       /* necesario para el pseudo-elemento */
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 5px;
-  overflow: hidden;        /* para evitar que el pseudo-elemento sobresalga */
-  transition: color 0.3s ease;
-}
 
-#header nav ul li a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0;
-  background-color: #3b90aa; /* color del fondo animado */
-  border-radius: 5px;
-  z-index: -1;             /* detrás del texto */
-  transition: width 0.5s ease; /* duración de la animación */
-}
+  #header nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
 
-#header nav ul li a:hover::before {
-  width: 100%;             /* se expande el fondo al 100% */
-}
+  #header nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: #3b90aa;
+    border-radius: 5px;
+    z-index: -1;
+    transition: width 0.5s ease;
+  }
 
-#header nav ul li a:hover {
-  color: #fcfbfa;          /* color del texto sobre el fondo */
-}
-   #nav-menu ul {
+  #header nav ul li a:hover::before {
+    width: 100%;
+  }
+
+  #header nav ul li a:hover {
+    color: #fcfbfa;
+  }
+  #nav-menu ul {
     flex-direction: column;
     gap: 0;
   }
-  
+
   #nav-menu ul li a {
     display: block;
     padding: 12px 20px;
     border-radius: 0;
     border-bottom: 1px solid #335588;
   }
-  
+
   /* Ajustamos el padding del contenido */
   main {
     padding-top: 55px;
   }
 
   .linea-tiempo {
-    min-width: auto; /* Permite que se ajuste al contenido */
+    min-width: auto;
   }
 
   .evento {
-    width: 160px; /* Reducir el ancho de los eventos */
+    width: 160px;
     padding: 8px;
   }
 
@@ -523,34 +601,50 @@ form button:hover {
   .evento p {
     font-size: 12px;
   }
+
+  .tarjeta-noticia {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .miniatura {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .texto-noticia {
+    width: 100%;
+    padding: 10px 0 0 0;
+  }
 }
 
-  /* Mostramos la navegación normal como flex en pantallas mayores a 600px */
-  @media (min-width: 601px) {
-    #header nav ul {
-      display: flex;
-    }
+/* Mostramos la navegación normal como flex en pantallas mayores a 600px */
+@media (min-width: 601px) {
+  #header nav ul {
+    display: flex;
+  }
 
-    .hamburguer_menu {
-      display: none;
-    }
+  .hamburguer_menu {
+    display: none;
+  }
 
-    #header nav {
-      display: block; /* Aseguramos que la navegación sea visible */
-      position: static; /* Volver a la posición estática */
-      width: auto; /* Ancho automático */
-      background-color: transparent; /* Fondo transparente */
-      box-shadow: none; /* Quitar la sombra */
-    }
+  #header nav {
+    display: block;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+  }
 
-    #nav-menu {
+  #nav-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background-color: #003366;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1001;
   }
 
@@ -558,29 +652,29 @@ form button:hover {
   #nav-menu.active {
     display: block;
   }
-  }
+}
 
-  /* Estilos para el contenedor del formulario */
+/* Estilos para el contenedor del formulario */
 .formulario-hincha {
-  background-color: white; /* To make the shadow visible */
+  background-color: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombreado suave */
-  margin-top: 20px; /* Adjust as needed */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
 }
 
 .formulario-hincha h2 {
-  color: #003366; /* Keeping the original color */
+  color: #003366;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .formulario-compartir label {
-  font-family: 'Georgia', serif; /* Ejemplo de fuente elegante */
+  font-family: "Georgia", serif;
   font-weight: bold;
   display: block;
   margin-top: 15px;
-  color: #003366; /* Keeping the original color */
+  color: #003366;
 }
 
 .formulario-hincha input,
@@ -601,21 +695,22 @@ form button:hover {
 
 /* Estilos para el botón Enviar */
 .formulario-hincha button {
-  background-color: #003366; /* Keeping the original color */
+  background-color: #003366;
   color: white;
   border: none;
-  padding: 12px 150px; /* Adjust padding as needed */
+  padding: 12px 20px;
   font-size: 16px;
-  border-radius: 25px; /* Botón redondeado */
+  border-radius: 25px;
   cursor: pointer;
-  width: auto; /* Adjust width as needed */
+  width: 80%;
+  max-width: 300px;
   margin-top: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
-  display: block; /* To center the button if needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .formulario-hincha button:hover {
-  background-color: #00509e; /* Darker shade on hover */
+  background-color: #00509e;
 }
