@@ -1,6 +1,6 @@
 /* Imports */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap");
 
 /* Reset básico */
 * {
@@ -20,7 +20,7 @@ body {
 /* Header y menú */
 #header {
   background-color: #003366;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   color: white;
   padding: 10px 20px;
   position: fixed;
@@ -35,7 +35,6 @@ body {
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* sombra blanca suave */
   backdrop-filter: blur(10px); /* desenfoque de fondo */
 }
-
 
 #header.header-hidden {
   transform: translateY(-100%);
@@ -67,7 +66,7 @@ body {
 }
 
 .hamburguer_menu {
-   display: none; 
+  display: none;
   background: none;
   border: none;
   color: white;
@@ -84,8 +83,6 @@ body {
   box-sizing: border-box; /* importante para que el padding no aumente el ancho */
   clear: both; /* para evitar problemas con floats */
 }
-
-
 
 /* Espaciado del contenido para no tapar con el menú fijo */
 main {
@@ -158,15 +155,17 @@ main {
 
 .contenedor-lineatp {
   overflow-x: auto; /* Permite el scroll horizontal en pantallas pequeñas */
+  padding-left: 20px; /* Añade espacio para que se vea la primera tarjeta */
 }
 
 .linea-tiempo {
   display: flex;
-  justify-content: center; /* Centra los eventos dentro del scroll */
+  justify-content: flex-start; /* Mueve el scroll al inicio en lugar de centrar */
   gap: 30px;
   padding: 20px 0;
-   min-width: 650px; 
+  min-width: 650px;
   scroll-snap-type: x mandatory; /* Suaviza el scroll si se desea */
+  scroll-padding-left: 20px; /* Alinea correctamente el scroll con el padding */
 }
 .evento {
   flex: 0 0 auto;
@@ -175,6 +174,7 @@ main {
   padding: 10px;
   border-radius: 5px;
   width: 200px;
+  scroll-snap-align: start; /* Hace que cada tarjeta se alinee bien en scroll */
 }
 
 .evento img {
@@ -237,7 +237,6 @@ main {
   background-color: #e0ecff;
 }
 
-
 .clubes summary::after {
   content: "▸";
   font-size: 18px;
@@ -270,7 +269,7 @@ main {
   width: 100px;
   height: auto;
   margin: 10px 0;
-  }
+}
 
 .clubes .estadio {
   width: 100%;
@@ -302,7 +301,6 @@ main {
 .hinchas p {
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .slideshow {
@@ -319,14 +317,14 @@ main {
 .slides {
   display: flex;
   width: 100%; /* 3 imágenes */
-  
+
   animation: slide 9s infinite;
 }
 
 .slide {
   flex: 0 0 100%;
   height: 25rem;
-  
+
   position: relative;
 }
 
@@ -334,24 +332,25 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
 @keyframes slide {
-  0%, 20% {
+  0%,
+  20% {
     transform: translateX(0%);
   }
-  33.33%, 53.33% {
+  33.33%,
+  53.33% {
     transform: translateX(-100%);
   }
-  66.66%, 86.66% {
+  66.66%,
+  86.66% {
     transform: translateX(-200%);
   }
   100% {
     transform: translateX(0%);
   }
 }
-
 
 /* Formulario */
 .formulario-hincha {
@@ -360,7 +359,7 @@ main {
   border-radius: 10px;
   max-width: 600px;
   margin: 40px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .formulario-hincha h2 {
@@ -415,7 +414,6 @@ form button:hover {
   margin-top: 20px;
 }
 
-
 /* Estilos para pantallas más pequeñas (hasta 600px) */
 @media (max-width: 600px) {
   /* Ajustamos el header */
@@ -425,18 +423,18 @@ form button:hover {
     justify-content: space-between; /* Espacio entre logo y botón */
     align-items: center; /* Centrar verticalmente logo y botón */
   }
-  
+
   /* Hacemos el logo más pequeño */
   #header img {
     height: 35px;
     margin-bottom: 0;
   }
-  
+
   /* Mostramos el botón hamburguesa */
   .hamburguer_menu {
     display: block; /* Mostrar en pantallas pequeñas */
   }
-  
+
   /* Ocultamos el menú por defecto */
   #header nav {
     display: none;
@@ -445,63 +443,63 @@ form button:hover {
     left: 0;
     width: 100%;
     background-color: #003366;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Cuando el menú está activo */
   #header nav.active {
     display: block;
   }
-  
+
   /* Reorganizamos el menú en columna */
   #header nav ul {
     flex-direction: column;
     gap: 0;
   }
-  
-#header nav ul li a {
-  position: relative;       /* necesario para el pseudo-elemento */
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 5px;
-  overflow: hidden;        /* para evitar que el pseudo-elemento sobresalga */
-  transition: color 0.3s ease;
-}
 
-#header nav ul li a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0;
-  background-color: #3b90aa; /* color del fondo animado */
-  border-radius: 5px;
-  z-index: -1;             /* detrás del texto */
-  transition: width 0.5s ease; /* duración de la animación */
-}
+  #header nav ul li a {
+    position: relative; /* necesario para el pseudo-elemento */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    overflow: hidden; /* para evitar que el pseudo-elemento sobresalga */
+    transition: color 0.3s ease;
+  }
 
-#header nav ul li a:hover::before {
-  width: 100%;             /* se expande el fondo al 100% */
-}
+  #header nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: #3b90aa; /* color del fondo animado */
+    border-radius: 5px;
+    z-index: -1; /* detrás del texto */
+    transition: width 0.5s ease; /* duración de la animación */
+  }
 
-#header nav ul li a:hover {
-  color: #fcfbfa;          /* color del texto sobre el fondo */
-}
-   #nav-menu ul {
+  #header nav ul li a:hover::before {
+    width: 100%; /* se expande el fondo al 100% */
+  }
+
+  #header nav ul li a:hover {
+    color: #fcfbfa; /* color del texto sobre el fondo */
+  }
+  #nav-menu ul {
     flex-direction: column;
     gap: 0;
   }
-  
+
   #nav-menu ul li a {
     display: block;
     padding: 12px 20px;
     border-radius: 0;
     border-bottom: 1px solid #335588;
   }
-  
+
   /* Ajustamos el padding del contenido */
   main {
     padding-top: 55px;
@@ -525,32 +523,32 @@ form button:hover {
   }
 }
 
-  /* Mostramos la navegación normal como flex en pantallas mayores a 600px */
-  @media (min-width: 601px) {
-    #header nav ul {
-      display: flex;
-    }
+/* Mostramos la navegación normal como flex en pantallas mayores a 600px */
+@media (min-width: 601px) {
+  #header nav ul {
+    display: flex;
+  }
 
-    .hamburguer_menu {
-      display: none;
-    }
+  .hamburguer_menu {
+    display: none;
+  }
 
-    #header nav {
-      display: block; /* Aseguramos que la navegación sea visible */
-      position: static; /* Volver a la posición estática */
-      width: auto; /* Ancho automático */
-      background-color: transparent; /* Fondo transparente */
-      box-shadow: none; /* Quitar la sombra */
-    }
+  #header nav {
+    display: block; /* Aseguramos que la navegación sea visible */
+    position: static; /* Volver a la posición estática */
+    width: auto; /* Ancho automático */
+    background-color: transparent; /* Fondo transparente */
+    box-shadow: none; /* Quitar la sombra */
+  }
 
-    #nav-menu {
+  #nav-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background-color: #003366;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1001;
   }
 
@@ -558,9 +556,9 @@ form button:hover {
   #nav-menu.active {
     display: block;
   }
-  }
+}
 
-  /* Estilos para el contenedor del formulario */
+/* Estilos para el contenedor del formulario */
 .formulario-hincha {
   background-color: white; /* To make the shadow visible */
   padding: 30px;
@@ -576,7 +574,7 @@ form button:hover {
 }
 
 .formulario-compartir label {
-  font-family: 'Georgia', serif; /* Ejemplo de fuente elegante */
+  font-family: "Georgia", serif; /* Ejemplo de fuente elegante */
   font-weight: bold;
   display: block;
   margin-top: 15px;
@@ -601,17 +599,18 @@ form button:hover {
 
 /* Estilos para el botón Enviar */
 .formulario-hincha button {
-  background-color: #003366; /* Keeping the original color */
+  background-color: #003366;
   color: white;
   border: none;
-  padding: 12px 150px; /* Adjust padding as needed */
+  padding: 12px 20px; /* Mucho menor */
   font-size: 16px;
-  border-radius: 25px; /* Botón redondeado */
+  border-radius: 25px;
   cursor: pointer;
-  width: auto; /* Adjust width as needed */
+  width: 80%; /* Se adapta al tamaño del contenedor */
+  max-width: 300px; /* No se hace muy grande en escritorio */
   margin-top: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
-  display: block; /* To center the button if needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
