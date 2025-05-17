@@ -93,15 +93,24 @@ main {
 }
 
 /* Sección jugadores */
+article.noticias h2 {
+  margin-bottom: 20px; /* Ajusta este valor al espacio que desees */
+}
+
+article.noticias p {
+  margin-bottom: 40px; /* Ajusta este valor al espacio que desees */
+}
+
+
 .jugadores {
   text-align: center;
   margin-bottom: 60px;
-  padding: 20px;
-  padding-top: 40px;
+  padding: 40px;
+  padding-top: 50px;
 }
 
 .jugadores h2 {
-  margin-top: 80x;
+  margin-top: 20x;
   margin-bottom: 20px;
 }
 
