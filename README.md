@@ -22,3 +22,5 @@ La estructura HTML se construyó utilizando **elementos semánticos** para mejor
 * `<footer>`: Para la sección de pie de página con información de derechos de autor y enlaces relevantes.
 
 Adicionalmente, se integró una funcionalidad interactiva mediante un elemento `<script>`. Este script permite que el `<header>` de la página se **oculte dinámicamente al hacer scroll hacia abajo**, mejorando la experiencia de navegación y permitiendo a los usuarios concentrarse en el contenido principal al explorar la página.
+## Link de la pagina:
+https://pasionfutbolec.netlify.app/
