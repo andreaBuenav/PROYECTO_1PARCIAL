@@ -340,7 +340,7 @@ main {
 
 .tarjeta img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -400,7 +400,7 @@ main {
     margin-bottom: 10px;
   }
   .grid {
-    gap: 8px;
+    gap: 18px;
     padding: 4px 0;
     grid-template-columns: 1fr;
   }
@@ -408,7 +408,7 @@ main {
     border-radius: 6px;
   }
   .tarjeta img {
-    height: 110px;
+    height: 350px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
   }
