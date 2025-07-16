@@ -53,7 +53,7 @@
 
         <section class="formulario-hincha">
   <h2>Comparte tu pasión</h2>
-  <form onsubmit="return mostrarMensaje()">
+  <form id="hinchasForm">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required />
 
@@ -78,6 +78,9 @@
       ¡Gracias por compartir tu pasión! 🏁
     </p>
   </form>
+
+  <!-- Debajo del formulario en Hinchas.html -->
+  <div id="formResult"></div>
 </section>
 
       </section>
@@ -111,6 +114,35 @@
       navMenu.classList.toggle('active');
     });
     
+    document.getElementById('hinchasForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById('nombre').value.trim();
+  const ciudad = document.getElementById('ciudad').value.trim();
+  const equipo = document.getElementById('equipo').value;
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  let errores = [];
+
+  if (nombre.length === 0) errores.push('El nombre es obligatorio.');
+  if (ciudad.length === 0) errores.push('La ciudad es obligatoria.');
+  if (equipo === "") errores.push('Debes seleccionar un equipo.');
+  if (mensaje.length === 0) errores.push('El mensaje es obligatorio.');
+
+  if (errores.length > 0) {
+    alert(errores.join('\n'));
+    return;
+  }
+
+  document.getElementById('formResult').innerHTML = `
+    <h2>Datos validados:</h2>
+    <p><strong>Nombre:</strong> ${nombre}</p>
+    <p><strong>Ciudad:</strong> ${ciudad}</p>
+    <p><strong>Equipo:</strong> ${equipo}</p>
+    <p><strong>Mensaje:</strong> ${mensaje}</p>
+  `;
+  document.getElementById("mensajeExito").style.display = "block";
+});
     </script>
       <footer id="footer">
     <p>&copy; 2025  Pasión Fútbol EC. Todos los derechos reservados.</p>
