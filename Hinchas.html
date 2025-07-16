@@ -134,14 +134,22 @@
     return;
   }
 
-  document.getElementById('formResult').innerHTML = `
-    <h2>Datos validados:</h2>
-    <p><strong>Nombre:</strong> ${nombre}</p>
-    <p><strong>Ciudad:</strong> ${ciudad}</p>
-    <p><strong>Equipo:</strong> ${equipo}</p>
-    <p><strong>Mensaje:</strong> ${mensaje}</p>
-  `;
-  document.getElementById("mensajeExito").style.display = "block";
+  fetch('https://pasionfutbolec-backend.onrender.com/hinchas', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, ciudad, equipo, mensaje })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('formResult').innerHTML = `
+      <h2>Datos enviados al servidor:</h2>
+      <p><strong>Nombre:</strong> ${data.nombre}</p>
+      <p><strong>Ciudad:</strong> ${data.ciudad}</p>
+      <p><strong>Equipo:</strong> ${data.equipo}</p>
+      <p><strong>Mensaje:</strong> ${data.mensaje}</p>
+    `;
+    document.getElementById("mensajeExito").style.display = "block";
+  });
 });
     </script>
       <footer id="footer">
