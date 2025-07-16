@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -21,10 +21,10 @@ app.post('/hinchas', (req, res) => {
 });
 
 // GET /hinchas - Devuelve todos los hinchas registrados
-app.get('/hinchas', (res) => {
+app.get('/hinchas', (req, res) => {
   res.json(hinchas);
 });
 
 app.listen(PORT, () => {
-  console.log(`API corriendo en ${URL}`);
+  console.log(`API corriendo en http://localhost:${PORT}`);
 });
