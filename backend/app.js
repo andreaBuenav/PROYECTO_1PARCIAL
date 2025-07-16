@@ -13,7 +13,10 @@ const usuarios = [
   { nombre: 'Andrea', edad: 28, ciudad: 'Quito' }
 ];
 
-// Ruta GET /usuarios con filtros por query string
+// Hinchas simulados
+const hinchas = [];
+
+// GET /usuarios?nombre=Ana&edad=25&ciudad=Quito
 app.get('/usuarios', (req, res) => {
   let resultado = usuarios;
 
@@ -28,6 +31,22 @@ app.get('/usuarios', (req, res) => {
   }
 
   res.json(resultado);
+});
+
+// POST /hinchas
+app.post('/hinchas', (req, res) => {
+  const { nombre, ciudad, equipo, mensaje } = req.body;
+  if (!nombre || !ciudad || !equipo || !mensaje) {
+    return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
+  }
+  const nuevoHincha = { nombre, ciudad, equipo, mensaje };
+  hinchas.push(nuevoHincha);
+  res.status(201).json(nuevoHincha);
+});
+
+// GET /hinchas (opcional, para ver los hinchas registrados)
+app.get('/hinchas', (req, res) => {
+  res.json(hinchas);
 });
 
 app.listen(PORT, () => {
