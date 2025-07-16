@@ -4,6 +4,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
+app.options('/hinchas', cors());
 app.use(express.json());
 
 // Datos simulados
