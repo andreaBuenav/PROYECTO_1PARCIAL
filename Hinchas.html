@@ -83,6 +83,11 @@
   <div id="formResult"></div>
 </section>
 
+<div id="listaHinchas">
+  <h2>Hinchas registrados</h2>
+  <ul id="hinchasRegistrados"></ul>
+</div>
+
       </section>
     </main>
 
@@ -149,8 +154,31 @@
       <p><strong>Mensaje:</strong> ${data.mensaje}</p>
     `;
     document.getElementById("mensajeExito").style.display = "block";
+    cargarHinchas(); 
   });
 });
+
+
+function cargarHinchas() {
+  fetch('https://proyecto-2parcial.onrender.com/hinchas')
+    .then(res => res.json())
+    .then(hinchas => {
+      const lista = document.getElementById('hinchasRegistrados');
+      if (hinchas.length === 0) {
+        lista.innerHTML = '<li>No hay hinchas registrados aún.</li>';
+        return;
+      }
+      lista.innerHTML = hinchas.map(h =>
+        `<li><strong>${h.nombre}</strong> (${h.ciudad}) - <em>${h.equipo}</em>: ${h.mensaje}</li>`
+      ).join('');
+    })
+    .catch(() => {
+      document.getElementById('hinchasRegistrados').innerHTML = '<li>Error al cargar hinchas.</li>';
+    });
+}
+
+// Llama a la función al cargar la página
+cargarHinchas();
     </script>
       <footer id="footer">
     <p>&copy; 2025  Pasión Fútbol EC. Todos los derechos reservados.</p>
